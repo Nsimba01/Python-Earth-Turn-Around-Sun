@@ -1,0 +1,32 @@
+
+#########################################################################################
+# Exemple d'un fichier d'entree pour le projet 'cinetique'                              #
+#                                                                                       #
+# La fonction read_kmc_system() reconnait ce format et procede comme suit:              #
+#   - seules les lignes commencant par 'specie:' ou 'reaction:' sont lues               #
+#   - la casse des caracteres (majuscules/minuscules) n'a pas d'importance              #
+#   - on peut rajouter des espaces ou sauter des lignes a volonte                       #
+#   - le nom des especes chimiques ne doit pas contenir de caractere '+'                #
+#                                                                                       #
+# Les donnees sont directement renvoyees, sauf les equations bilans qui sont analysees. #
+# On en retire le type de reaction et la matrice de mise a jour des populations.        #
+# Seules les reactions de types 0,1,2 sont autorisees:                                  #
+#   - type 0: X   -> ...                                                                #
+#   - type 1: X+X -> ...                                                                #
+#   - type 2: X+Y -> ...                                                                #
+#                                                                                       #
+#########################################################################################
+
+
+SPECIE:  A   C0 = 0.254
+SPECIE:  B   C0 = 0.108
+SPECIE:  C   C0 = 0.057
+
+
+REACTION:   2A -> B + C  k = 0.0211
+REACTION:   A+B-> C      k = 0.0097
+REACTION:   B+B-> 2 C    k = 0.0447
+REACTION:     C-> A+B    k = 0.0102
+
+
+
